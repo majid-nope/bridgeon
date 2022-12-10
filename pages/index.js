@@ -1,12 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
-import { Button } from '@mantine/core';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.scss";
+import { Button } from "@mantine/core";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+
+import { useMediaQuery } from "@mantine/hooks";
+import Menus from "./components/Menus";
 
 export default function Home() {
+  const matchRespo = useMediaQuery("(max-width:1517px)");
+  console.log(matchRespo);
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +22,6 @@ export default function Home() {
 
       <section className={styles.section}>
         <div className={styles.glass_container}>
-
           {/* mixers */}
           <div className={styles.purple}></div>
           <div className={styles.blue}></div>
@@ -26,35 +30,66 @@ export default function Home() {
 
           {/* glass body */}
           <div className={styles.glass}>
-            <div className={styles.header}>
+            <div className={styles.header} style={{ justifyContent: matchRespo ? 'space-between' : '' }}>
               <div className={styles.brand}>
                 <h5>Bridgeon</h5>
               </div>
-              <div className={styles.nav}>
-                <li>Service</li>
-                <li> Explore</li>
-                <li>Works</li>
+              <div className={styles.nav} style={{ width: matchRespo ? '0' : '80%' }}>
+                {matchRespo ? (
+                  <div className={styles.menu_bar}>
+                    <Menus />
+                  </div>
+                ) : (
+                  <div className={styles.menu_nav}>
+                    <li>Service</li>
+                    <li> Explore</li>
+                    <li>Works</li>
+                  </div>
+                )}
               </div>
-              <div className={styles.info}>
-                <Button variant="outline" className={ styles.contact_us } sx={{ borderColor: 'gray', color: 'gray' }}>Contact us</Button>
-              </div>
+              {!matchRespo &&
+                <div className={styles.info}>
+                  <Button
+                    variant="outline"
+                    className={styles.contact_us}
+                    sx={{ borderColor: "gray", color: "gray" }}
+                  >
+                    Contact us
+                  </Button>
+                </div>
+              }
             </div>
-            <div className={styles.body}>
-              <div className={styles.holder}>
-                <h2>✨ “Inspiration does exist, but it must find you working” </h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, animi? Neque, debitis. Voluptatibus, sunt sint.</p>
-                <Button color="green" sx={{ width: '20%', marginTop: "7%" }}>Explore</Button>
+            <div className={styles.body} >
+              <div className={styles.holder} style={{ width: !matchRespo ? "" : "100%" }}>
+                <h2>
+                  ✨ “Inspiration does exist, but it must find you working”{" "}
+                </h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Iure, animi? Neque, debitis. Voluptatibus, sunt sint.
+                </p>
+                <Button color="green" sx={{ width: "100px", marginTop: "7%" }}>
+                  Explore
+                </Button>
               </div>
             </div>
             <div className={styles.footer}>
-              <InstagramIcon className={styles.ico_insta} sx={{ color: "gray", cursor: 'pointer' }} />
-              <LinkedInIcon className={styles.ico_linkedIn} sx={{ color: "gray", cursor: 'pointer' }} />
-              <WhatsAppIcon className={[styles.ico_wa]} sx={{ color: "gray", cursor: 'pointer' }} />
+              <InstagramIcon
+                className={styles.ico_insta}
+                sx={{ color: "gray", cursor: "pointer" }}
+              />
+              <LinkedInIcon
+                className={styles.ico_linkedIn}
+                sx={{ color: "gray", cursor: "pointer" }}
+              />
+              <WhatsAppIcon
+                className={[styles.ico_wa]}
+                sx={{ color: "gray", cursor: "pointer" }}
+              />
             </div>
           </div>
         </div>
-
       </section>
     </div>
-  )
+  );
 }

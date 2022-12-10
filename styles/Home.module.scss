@@ -54,6 +54,7 @@
          flex-direction: row;
 
          .brand {
+           padding-left: 40px;
            width: 10%;
            height: 100%;
            align-items: center;
@@ -74,19 +75,35 @@
            flex-direction: row;
            justify-content: center;
            align-items: center;
-           gap: 60px;
 
-           li {
-             color: gray;
-             user-select: none;
-             list-style: none;
-             cursor: pointer;
+           .menu_bar {
+            padding-right: 55px;
            }
 
-           li:hover {
-             color: rgb(182, 179, 179);
+           .menu_nav {
+             gap: 60px;
+             display: flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+             width: 100%;
 
+             li {
+               color: gray;
+               user-select: none;
+               list-style: none;
+               cursor: pointer;
+             }
+
+             li:hover {
+               color: rgb(182, 179, 179);
+
+             }
            }
+
+
+
+
 
          }
 
@@ -99,6 +116,8 @@
 
            .contact_us:hover {
              color: whitesmoke;
+             background-color: transparent;
+             border-color: aliceblue;
            }
          }
 
