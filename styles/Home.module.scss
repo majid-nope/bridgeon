@@ -1,4 +1,4 @@
- @mixin inline-animation($duration, $goAway) {
+ @mixin inline-animation($duration, $goAway, $iteration) {
    $name: $goAway;
 
    @keyframes #{$name} {
@@ -7,7 +7,7 @@
 
    animation-name: $name;
    animation-duration: $duration;
-   animation-iteration-count: infinite;
+   animation-iteration-count: $iteration;
  }
 
  .container {
@@ -24,7 +24,7 @@
    z-index: 1;
    width: 100%;
    height: 100%;
-   background: linear-gradient(154deg, #202B56, #07070F, #07070F, #07070F);
+   background: linear-gradient(212deg, #202B56, #07070F, #07070F, #07070F);
    position: relative;
 
    .glass_container {
@@ -63,8 +63,8 @@
            color: white;
            display: flex;
 
-           h5 {
-             word-spacing: 10px;
+           .logo {
+             width: 100%;
            }
          }
 
@@ -77,7 +77,7 @@
            align-items: center;
 
            .menu_bar {
-            padding-right: 55px;
+             padding-right: 55px;
            }
 
            .menu_nav {
@@ -126,30 +126,119 @@
        .body {
          width: 100%;
          height: 80%;
+         //  padding: 5%;
          display: flex;
+         flex-direction: row;
          align-items: center;
+         justify-content: center;
 
-         .holder {
-           text-align: left;
-           color: white;
+
+
+         .service {
+           width: 50%;
+           height: 100%;
+           aspect-ratio: 1/1;
+           border-radius: 14px;
+           transition: all 1s;
+           cursor: pointer;
+           border: 0.1px solid #8080801c;
            display: flex;
-           justify-content: space-between;
-           flex-direction: column;
-           width: 30%;
-           padding: 7%;
-
-           p {
-             word-wrap: break-word;
-             color: gray;
+           align-items: center;
+           justify-content: center;
+           padding-left: 20px;
 
 
+           @include inline-animation(1s, goDwon, 1) {
+             0% {
+               box-shadow: -5px 8px 20px 0px #0606064a;
+             }
+
+             100% {
+               box-shadow: 0px 0px 0px 0px #0606064a;
+             }
            }
 
-           h2 {
-             word-wrap: break-word;
-             font-size: x-large;
+           &:hover {
+             box-shadow: -5px 8px 20px 0px #0606064a;
+             transition: all 1s;
+           }
+
+           .holder {
+             text-align: left;
+             color: white;
+             display: flex;
+            //  justify-content: space-between;
+             flex-direction: column;
+             width: 100%;
+
+
+             p {
+               word-wrap: break-word;
+               color: gray;
+
+
+
+             }
+
+             h2 {
+               word-wrap: break-word;
+               font-size: x-large;
+             }
            }
          }
+
+         .training {
+           width: 50%;
+           height: 100%;
+           aspect-ratio: 1/1;
+           border-radius: 14px;
+           transition: all 1s;
+           cursor: pointer;
+           border: 0.1px solid #8080801c;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           padding-left: 20px;
+
+           &:hover {
+             box-shadow: -5px 8px 20px 0px #0606064a;
+             transition: all 1s;
+           }
+
+           @include inline-animation(1s, goDwon, 1) {
+             0% {
+               box-shadow: -5px 8px 20px 0px #0606064a;
+             }
+
+             100% {
+               box-shadow: 0px 0px 0px 0px #0606064a;
+             }
+           }
+
+           .holder {
+             text-align: left;
+             color: white;
+             display: flex;
+             justify-content: space-between;
+             flex-direction: column;
+             width: 100%;
+
+
+             p {
+               word-wrap: break-word;
+               color: gray;
+
+
+             }
+
+             h2 {
+               word-wrap: break-word;
+               font-size: x-large;
+             }
+           }
+         }
+
+
        }
 
        .footer {
@@ -191,7 +280,7 @@
        animation-timing-function: linear;
        animation-delay: 1s;
 
-       @include inline-animation(2s, spinSplash3) {
+       @include inline-animation(2s, spinSplash3, infinite) {
          0% {
            transform: translate(-44%, -5%) rotate(0deg);
          }
@@ -213,7 +302,7 @@
        border-radius: 50%;
        animation-timing-function: linear;
 
-       @include inline-animation(2s, spinSplash2) {
+       @include inline-animation(2s, spinSplash2, infinite) {
          0% {
            transform: translate(-24%, -51%) rotate(0deg);
          }
@@ -237,7 +326,7 @@
 
        animation-timing-function: linear;
 
-       @include inline-animation(2s, spinSplash1) {
+       @include inline-animation(2s, spinSplash1, infinite) {
          0% {
            transform: translate(243%, 135%) rotate(0deg);
          }
@@ -259,7 +348,7 @@
        border-radius: 50%;
        animation-timing-function: linear;
 
-       @include inline-animation(2s, spinSplash) {
+       @include inline-animation(2s, spinSplash, infinite) {
          0% {
            transform: translate(243%, 135%) rotate(0deg);
          }
