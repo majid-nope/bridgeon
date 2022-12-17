@@ -66,7 +66,7 @@ export default function Home() {
                   <div className={styles.training} >
                     <div className={styles.holder} style={{ width: !matchRespo ? "" : "100%", height: !matchRespo ? "100%" : "" }}>
                       <h2 style={{ fontSize: matchRespo ? '15px' : "x-large" }}>
-                        "Accelerate your journey to becoming a software developer with our intensive bootcamp"
+                        &quot;Accelerate your journey to becoming a software developer with our intensive bootcamp&quot;
                       </h2>
                       {!matchRespo ? <p style={{ fontSize: matchRespo ? '15px' : "20px" }}>
                         Are you ready to start your journey to becoming a software developer?. Our intensive training program is designed to give you the skills and knowledge you need to succeed in the fast-paced world of software development. From hands-on training and interactive workshops to expert guidance and support, we offer everything you need to accelerate your journey. So why wait? Join our bootcamp today and start your journey to success!
@@ -81,7 +81,7 @@ export default function Home() {
                   <div className={styles.service}>
                     <div className={styles.holder} style={{ width: !matchRespo ? "" : "100%", height: !matchRespo ? "100%" : "" }}>
                       <h2 style={{ fontSize: matchRespo ? '15px' : "x-large" }}>
-                        “Transform your business with our cutting-edge software services”
+                        &quot;Transform your business with our cutting-edge software services&quot;
                       </h2>
                       {!matchRespo ? <p style={{ fontSize: matchRespo ? '15px' : "20px" }} >
                         We offer a wide range of innovative solutions that are designed to streamline your operations and take your business to the next level. Our software services are reliable, scalable, and secure, making them the perfect choice for businesses of all sizes. Start your journey to success with our software services today!
