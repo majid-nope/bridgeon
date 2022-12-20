@@ -12,7 +12,7 @@ const Menus = () => {
                 <Menu.Item >Explore</Menu.Item>
                 <Menu.Item>Works</Menu.Item>
                 <Menu.Divider />
-                <Menu.Item>Contact us</Menu.Item>
+                <Menu.Item onClick={() => window.open("https://forms.gle/yEoFuXRr2Kwg7esi9", "blank")}>Contact us</Menu.Item>
             </Menu.Dropdown>
         </Menu >
     )

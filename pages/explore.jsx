@@ -15,7 +15,7 @@ function Explore() {
                 <Bloom intensity={0.5} />
             </EffectComposer>
             {/* <ambientLight /> */}
-            <OrbitControls onChange={(...e) => console.log(...e)} target={[10, 0, 4]} />
+            <OrbitControls onChange={(...e) => console.log(...e)}/>
             <Environment preset="forest" background />
         </Canvas>
     )
